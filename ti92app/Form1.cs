@@ -20,9 +20,42 @@ namespace ti92app
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            
+            //Nivel.Atualizar(new Nivel(5,"Coordenador","cdd"));
+
+            var nivel = Nivel.ObterPorId(2);
+            label1.Text = nivel.Id + " - " + nivel.Nome + " - "+ nivel.Sigla;
+
+            List<Nivel> list = Nivel.Listar();
+            foreach (var item in list)
+            {
+                listBox1.Items.Add(item.Id + " - " + item.Nome);
+            }
           
+        }
+
+        private void btbInsereNivel_Click(object sender, EventArgs e)
+        {
+            Nivel nivel = new Nivel(txtNomeNivel.Text,txtSiglaNivel.Text);
+            nivel.Inserir();
+            txtIdNivel.Text = nivel.Id.ToString();
+            List<Nivel> list = Nivel.Listar();
+            listBox1.Items.Clear();
+            foreach (var item in list)
+            {
+                listBox1.Items.Add(item.Id + " - " + item.Nome);
+            }
+            MessageBox.Show("Nível inserido com Sucesso \n ID: "+ nivel.Id.ToString());
+            txtIdNivel.Clear();
+            txtNomeNivel.Clear();
+            txtSiglaNivel.Clear() ;
+            txtNomeNivel.Focus();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            txtIdNivel.ReadOnly= false;
+            txtIdNivel.Focus();
+            btnEditar.Text = "Gravar";
         }
     }
 }
