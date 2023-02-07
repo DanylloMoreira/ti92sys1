@@ -17,7 +17,6 @@ namespace ti92class
         public string Senha { get; set; }
         public bool Ativo { get; set; }
 
-        // Métodos constutores
         public Usuario() { }
          
             public Usuario(string _nome, string _email, Nivel _nivel,string _senha, bool _ativo) 
@@ -39,6 +38,15 @@ namespace ti92class
             
 
             }
+        public void Inserir()
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType= CommandType.Text;
+            cmd.CommandText = "insert usuario (nome, email) values ('" + Nome + "','" + Email + "')";
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = "select @@identity";
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
+        }
     }
 }
 

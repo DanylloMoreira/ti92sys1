@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.txtIdNivel = new System.Windows.Forms.TextBox();
             this.txtNomeNivel = new System.Windows.Forms.TextBox();
@@ -36,27 +35,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btbInsereNivel = new System.Windows.Forms.Button();
+            this.btnInsereNivel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.txtBusca = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(426, 68);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(417, 101);
+            this.listBox1.Location = new System.Drawing.Point(47, 246);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.Size = new System.Drawing.Size(253, 95);
             this.listBox1.TabIndex = 1;
             // 
             // txtIdNivel
@@ -66,6 +58,7 @@
             this.txtIdNivel.ReadOnly = true;
             this.txtIdNivel.Size = new System.Drawing.Size(44, 20);
             this.txtIdNivel.TabIndex = 2;
+            this.txtIdNivel.TextChanged += new System.EventHandler(this.txtIdNivel_TextChanged);
             // 
             // txtNomeNivel
             // 
@@ -108,51 +101,70 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "SIGLA";
             // 
-            // btbInsereNivel
+            // btnInsereNivel
             // 
-            this.btbInsereNivel.Location = new System.Drawing.Point(23, 110);
-            this.btbInsereNivel.Name = "btbInsereNivel";
-            this.btbInsereNivel.Size = new System.Drawing.Size(75, 23);
-            this.btbInsereNivel.TabIndex = 8;
-            this.btbInsereNivel.Text = "Inserir";
-            this.btbInsereNivel.UseVisualStyleBackColor = true;
-            this.btbInsereNivel.Click += new System.EventHandler(this.btbInsereNivel_Click);
+            this.btnInsereNivel.Location = new System.Drawing.Point(20, 113);
+            this.btnInsereNivel.Name = "btnInsereNivel";
+            this.btnInsereNivel.Size = new System.Drawing.Size(58, 23);
+            this.btnInsereNivel.TabIndex = 8;
+            this.btnInsereNivel.Text = "Inserir";
+            this.btnInsereNivel.UseVisualStyleBackColor = true;
+            this.btnInsereNivel.Click += new System.EventHandler(this.btbInsereNivel_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExcluir);
             this.groupBox1.Controls.Add(this.btnEditar);
             this.groupBox1.Controls.Add(this.txtSiglaNivel);
-            this.groupBox1.Controls.Add(this.btbInsereNivel);
+            this.groupBox1.Controls.Add(this.btnInsereNivel);
             this.groupBox1.Controls.Add(this.txtIdNivel);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtNomeNivel);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(83, 166);
+            this.groupBox1.Location = new System.Drawing.Point(47, 30);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(208, 165);
+            this.groupBox1.Size = new System.Drawing.Size(253, 165);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nível";
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(172, 113);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(58, 23);
+            this.btnExcluir.TabIndex = 10;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(111, 110);
+            this.btnEditar.Location = new System.Drawing.Point(98, 113);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.Size = new System.Drawing.Size(58, 23);
             this.btnEditar.TabIndex = 10;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // txtBusca
+            // 
+            this.txtBusca.Location = new System.Drawing.Point(47, 214);
+            this.txtBusca.Name = "txtBusca";
+            this.txtBusca.Size = new System.Drawing.Size(253, 20);
+            this.txtBusca.TabIndex = 10;
+            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtBusca);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -164,8 +176,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox txtIdNivel;
         private System.Windows.Forms.TextBox txtNomeNivel;
@@ -173,9 +183,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btbInsereNivel;
+        private System.Windows.Forms.Button btnInsereNivel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.TextBox txtBusca;
     }
 }
 

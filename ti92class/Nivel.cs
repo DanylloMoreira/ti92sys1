@@ -78,17 +78,41 @@ namespace ti92class
                 nivel.Nome = dr.GetString(1);
                 nivel.Sigla = dr.GetString(2);
             }
-            
-
+           
             return nivel;
         }
         public static void Atualizar(Nivel nivel) 
         { 
-            
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "update niveis set nome = '" +
+                nivel.Nome+ "', sigla = '"+ nivel.Sigla +
+                 "' where id = "+ nivel.Id;
+            cmd.ExecuteReader();
         }
-        public void Excluir(int _id) 
-        { 
-        
+        public bool Excluir(int _id) 
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "delete from niveis where id = " + _id;
+            bool result = cmd.ExecuteNonQuery()==1?true:false;
+            return result;
+        }
+        public static List<Nivel> BuscarPorNome(string _parte)
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from niveis where nome like '%"+_parte+"%' order by nome;";
+            var dr = cmd.ExecuteReader();
+            List<Nivel> lista = new List<Nivel>();
+            while (dr.Read())
+            {
+                lista.Add(new Nivel(
+                        dr.GetInt32(0),
+                        dr.GetString(1), 
+                        dr.GetString(2)));
+            }
+            return lista;
         }
 
     }
