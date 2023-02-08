@@ -20,11 +20,9 @@ namespace ti92app
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Nivel.Atualizar(new Nivel(5,"Coordenador","cdd"));
-
-            var nivel = Nivel.ObterPorId(2);
-            //label1.Text = nivel.Id + " - " + nivel.Nome + " - "+ nivel.Sigla;
-
+            comboBox1.DataSource = Nivel.Listar();
+            comboBox1.DisplayMember = "Nome";
+            comboBox1.ValueMember = "Id";
             AtualizaListBox();
           
         }

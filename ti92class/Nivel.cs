@@ -102,7 +102,7 @@ namespace ti92class
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from niveis where nome like '%"+_parte+"%' order by nome;";
+            cmd.CommandText = "select * from niveis where nome like '%"+ _parte + "%' or email like '%"+ _parte +"%' order by nome;";
             var dr = cmd.ExecuteReader();
             List<Nivel> lista = new List<Nivel>();
             while (dr.Read())
