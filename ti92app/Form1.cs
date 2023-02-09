@@ -121,6 +121,6 @@ namespace ti92app
                     AtualizaListBox();
                 }
             }
-        }
+        }            
     }
 }

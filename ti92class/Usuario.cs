@@ -43,17 +43,19 @@ namespace ti92class
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert usuario (nome, email, nivel, senha, ativo) values ('" + Nome + "','" + Email + "','" + Nivel + "','" + Senha + "','" + Ativo + "')";
+            cmd.CommandText = "insert usuarios (nome, email, nivel_id, senha, ativo) " +
+                "values ('" + Nome + "','" + Email + "'," + Nivel.Id + ",'" + Senha + "','" + Ativo + "')";
             cmd.ExecuteNonQuery();
             cmd.CommandText = "select @@identity";
             Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
         }
         public static List<Usuario> Listar()
         {
             List<Usuario> lista = new List<Usuario>();
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "select * from usuarios order br nome asc";
+            cmd.CommandText = "select * from usuarios order by nome asc";
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -61,8 +63,8 @@ namespace ti92class
                     dr.GetInt32(0),
                     dr.GetString(1),
                     dr.GetString(2),
-                    Nivel.ObterPorId(dr.GetInt32(3)),
-                    dr.GetString(4),
+                    Nivel.ObterPorId(dr.GetInt32(4)),
+                    dr.GetString(3),
                     dr.GetBoolean(5)));
             }
             return lista;
@@ -79,8 +81,8 @@ namespace ti92class
                 usuario.Id = dr.GetInt32(0);
                 usuario.Nome = dr.GetString(1);
                 usuario.Email = dr.GetString(2);
-                usuario.Nivel = Nivel.ObterPorId(dr.GetInt32(3));
-                usuario.Senha = dr.GetString(4);
+                usuario.Nivel = Nivel.ObterPorId(dr.GetInt32(4));
+                usuario.Senha = dr.GetString(3);
                 usuario.Ativo = dr.GetBoolean(5);
             }
             return usuario;
