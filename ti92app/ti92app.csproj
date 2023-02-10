@@ -85,19 +85,19 @@
       <DependentUpon>FrmProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -112,6 +112,24 @@
       <Project>{d3c8d69b-d0c4-4f6e-9563-e1fe6895cdd8}</Project>
       <Name>ti92class</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Protection.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\7837_64x64.png" />
@@ -132,28 +150,49 @@
     <None Include="Resources\6986_64x64.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\security.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\FinPedido.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pen.ico" />
+    <None Include="Resources\wi0054-48.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AdItem2.png" />
+    <None Include="Resources\Add1.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AdItem.png" />
+    <None Include="Resources\Search1.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Add.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Cancel.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Search.ico" />
+    <None Include="Resources\Add2.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Edit Alt.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit Alt1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monitor.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tool.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User Alt.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
