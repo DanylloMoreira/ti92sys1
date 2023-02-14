@@ -18,6 +18,7 @@ namespace ti92class
         public bool Descontinuado { get; set; }
 
         //Métodos construtores 
+         public Produto () { }
          public Produto(int id, string descricao, string unidade, string codbar, double preco, double desconto, bool descontinuado)
         {
             Id = id;

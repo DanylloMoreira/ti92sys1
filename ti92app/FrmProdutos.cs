@@ -21,10 +21,16 @@ namespace ti92app
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             Produto produto = new Produto(
-                txtDescricao.Text,cmbUnidade.Text,txtCodBar.Text,
-                double.Parse(mskPreco.Text), double.Parse(mskDesconto.Text));
+                txtDescricao.Text,cmbUnidade.Text,txtCodBar.Text,double.Parse(mskPreco.Text), double.Parse(mskDesconto.Text));
             produto.Inserir();
             txtId.Text = produto.Id.ToString();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Produto produto = new Produto(
+                
+                int.Parse(txtId.Text,txtDescricao.Text,cmbUnidade.Text,txtCodBar.Text,double.Parse(mskPreco.Text), double.Parse(mskDesconto.Text));
         }
     }
 }
