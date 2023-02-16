@@ -19,7 +19,7 @@ namespace ti92class
 
         //Métodos construtores 
          public Produto () { }
-         public Produto(int id, string descricao, string unidade, string codbar, double preco, double desconto, bool descontinuado)
+         public Produto(int id, string descricao, string unidade, string codbar, double preco, double desconto, bool descontinuado=false)
         {
             Id = id;
             Descricao = descricao;
@@ -30,7 +30,7 @@ namespace ti92class
             Descontinuado = descontinuado;
         }
 
-        public Produto(string descricao, string unidade, string codbar, double preco, double desconto, bool descontinuado)
+        public Produto(string descricao, string unidade, string codbar, double preco, double desconto, bool descontinuado=false)
         {
             Descricao = descricao;
             Unidade = unidade;
