@@ -12,9 +12,6 @@ namespace ti92app
 {
     public partial class FrmCliente : Form
     {
-        public FrmCliente()
-        {
-            InitializeComponent();
-        }
+        
     }
 }
