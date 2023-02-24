@@ -46,7 +46,7 @@ namespace ti92class
                     dr.GetDouble(3),
                     dr.GetDouble(4),
                     dr.GetDouble(5)
-                    )) ;
+                    ));
             }
             return itens;
         }
@@ -57,13 +57,12 @@ namespace ti92class
             cmd.CommandText = "select * from itempedido where pedido_id = " + pedido_id;
             var dr = cmd.ExecuteReader();
             while (dr.Read())
-            {           
-                iten.Id = dr.GetInt32(0),
-                iten.Produto = Produto.ObterPorId(dr.GetInt32(2)),
-                iten.Preco = dr.GetDouble(3),
-                iten.Quantidade = dr.GetDouble(4),
-                iten.Desconto = dr.GetDouble(5)
-                    ));
+            {
+                iten.Id = dr.GetInt32(0);
+                iten.Produto = Produto.ObterPorId(dr.GetInt32(2));
+                iten.Preco = dr.GetDouble(3);
+                iten.Quantidade = dr.GetDouble(4);
+                iten.Desconto = dr.GetDouble(5);                    
             }
             return iten;
         }
