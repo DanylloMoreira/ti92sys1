@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using Renci.SshNet.Messages.Connection;
 
 namespace ti92class
 {
@@ -50,16 +51,18 @@ namespace ti92class
         public void Inserir()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandText = "insert pedidos (data, status, desconto, hashcode, cliente_id, usuario_id)" +
-                                "values(default, default, 0, @client, @user);";
+            cmd.CommandText = "insert pedidos (data, status, desconto, cliente_id, usuario_id)" +
+                              "values(default, default, 0, @client, @user);";
             
             cmd.Parameters.Add("@client", MySqlDbType.Int32).Value = Cliente.Id;
             cmd.Parameters.Add("@user", MySqlDbType.Int32).Value = Usuario.Id;
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "update pedidos set hashcode = @hashcode+' (select @@identity)' where id = (select @@identity) ";
-            cmd.Parameters.Clear();
+            cmd.CommandText = "select @@identity";
+            Id = Convert.ToInt32(cmd.ExecuteScalar()); 
             Random rand = new Random();
-            cmd.Parameters.Add("@hashcode", MySqlDbType.VarChar).Value = "P" + rand.Next(10001, 99999).ToString();
+            string hash = "P" +Id+ rand.Next(10001, 99999);
+            Hashcode = hash;
+            cmd.CommandText = "update pedidos set hashcode = '" + hash + "' where id =" + Id;          
             cmd.ExecuteNonQuery();
         }
         public static List<Pedido> Listar(int a = 0)
@@ -153,9 +156,9 @@ namespace ti92class
             cmd.CommandText = "update pedidos set arquivado_em = null where id =  " + id;
             cmd.ExecuteNonQuery();
         }
-        public double ObterTotal() 
-        {
+        //public double ObterTotal() 
+        //{
 
-        }
+        //}
     }
 }

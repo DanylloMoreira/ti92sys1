@@ -122,7 +122,7 @@ namespace ti92class
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "select * from clientes where nome like '%" + _parte + "%' order br cpf;";
+            cmd.CommandText = "select * from clientes where nome like '%" + _parte + "%' order by cpf;";
             var dr = cmd.ExecuteReader();
             List<Cliente> lista = new List<Cliente>();
             while (dr.Read())
