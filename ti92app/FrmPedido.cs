@@ -13,6 +13,7 @@ namespace ti92app
 {
     public partial class FrmPedido : Form
     {
+        private double DescontoMax { get; set; }
         public FrmPedido()
         {
             InitializeComponent();
@@ -53,6 +54,16 @@ namespace ti92app
                     txtDescricao.Text = produto.Descricao;
                     txtUnid.Text = produto.Unidade;
                     txtPreco.Text = produto.Preco.ToString();
+                    if(produto.Desconto > 0)
+                    {
+                        DescontoMax = produto.Desconto * produto.Preco;
+                        lblDesMax.Text = DescontoMax.ToString("#0.00");
+                        txtDesconto.Enabled = true;
+                    }
+                    else
+                    {                      
+                        txtDesconto.Enabled= false;
+                    }
                     // txtQuantidade.Focus();
                 }
                 else
@@ -65,6 +76,7 @@ namespace ti92app
                 txtDescricao.Clear();
                 txtUnid.Clear();
                 txtPreco.Clear();
+                lblDesMax.Text = "";
             }
             
         }
@@ -108,6 +120,14 @@ namespace ti92app
                 total += totalIten; 
             }
             txtTotal.Text = total.ToString("##0.00");
+        }
+
+        private void txtQuantidade_TextChanged(object sender, EventArgs e)
+        {
+            if (txtQuantidade.Text!=string.Empty)
+            {
+                DescontoMax *= double.Parse(txtQuantidade.Text);
+            }
         }
     }
 }

@@ -38,6 +38,7 @@ namespace ti92app
             );
             produto.Atualizar();
             MessageBox.Show("Produto atualizado com sucesso!");
+            FrmProdutos_Load(sender, e);
         }
         private void FrmProdutos_Load(object sender, EventArgs e)
         {
@@ -56,10 +57,7 @@ namespace ti92app
                 linha++;
             }
         }
-        private void dtgLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            MessageBox.Show("Cliquei no conteúdo");
-        }
+        
         private void dtgLista_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // MessageBox.Show("Cliquei na célula");
@@ -69,7 +67,7 @@ namespace ti92app
             cmbUnidade.Text = dtgLista.Rows[e.RowIndex].Cells[3].Value.ToString();
             mskPreco.Text = dtgLista.Rows[e.RowIndex].Cells[4].Value.ToString();
             mskDesconto.Text = dtgLista.Rows[e.RowIndex].Cells[5].Value.ToString();
-            chkDescontinuado.Checked = Convert.ToBoolean(dtgLista.Rows[e.RowIndex].Cells[6].Value);
+            chkDescontinuado.Checked = (bool) dtgLista.Rows[e.RowIndex].Cells[6].Value;
             chkDescontinuado.Enabled = true;
         }
         private void dtgLista_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
